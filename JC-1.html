@@ -3,31 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-image: url('background.jpg'); 
-            background-size: cover;
-            background-position: center center; 
-            background-attachment: fixed; 
-            color: white; 
-            margin: 0;
-            height: 100vh; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        h1 {
-            font-size: 40px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6); 
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm JC, a BSIT student.</p>
+        </div>
+    </header>
 
-    <h1>Welcome, JORDAN CHESTER GARCIA!</h1>
+    <section id="about-me">
+        <div class="container about-me-container">
+            <div class="personal-info">
+                <img src="JC_ID_PIC.jpg" alt="JC's Profile Picture" class="profile-pic">
+                <div class="bio">
+                    <h2>About Me</h2>
+                    <p>Music, Films, Coffee, these are a few of my favorite things.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Description of project 1.</p>
+                </div>
+                <div class="project">
+                    <h3>Project 2</h3>
+                    <p>Description of project 2.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container contact-container">
+            <h2>Contact Me</h2>
+            <p>If you'd like to get in touch, feel free to email me at: <strong>jordan.chester.garcia@gmail.com</strong></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2025 JCG. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
