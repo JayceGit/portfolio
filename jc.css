@@ -1,33 +1,18 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; 
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #b18585;
     color: #333;
-    background-image: url('background.jpg'); 
+    background-image: url('https://www.example.com/your-background-image.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-
 header {
     background-color: rgba(0, 0, 0, 0.7);
-    color: white;
+    color: #b18585;
     padding: 30px 0;
-    text-align: center;
 }
 
 header h1 {
@@ -39,10 +24,9 @@ header p {
     font-size: 1.2em;
 }
 
-
 #about-me {
     padding: 60px 0;
-    background: rgba(255, 255, 255, 0.8); 
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .about-me-container {
@@ -61,13 +45,27 @@ header p {
     height: 150px;
     border-radius: 50%;
     margin-bottom: 20px;
-    border: 5px solid #333; 
+    border: 5px solid #333;
 }
 
 .bio {
     padding: 10px;
 }
 
+#tech-stack {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.tech-icons i {
+    margin: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.tech-icons i:hover {
+    color: #b18585;
+}
 
 #projects {
     padding: 60px 0;
@@ -109,11 +107,10 @@ header p {
     font-size: 1.1em;
 }
 
-
 #contact {
     padding: 60px 0;
     background-color: #333;
-    color: white;
+    color: #b18585;
 }
 
 #contact h2 {
@@ -127,11 +124,42 @@ header p {
     text-align: center;
 }
 
-
 footer {
     background-color: #333;
-    color: white;
+    color: #b18585;
     text-align: center;
     padding: 20px;
     margin-top: 40px;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    .tech-icons i {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .tech-icons i {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 320px) {
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .tech-icons i {
+        font-size: 1.2em;
+    }
 }
