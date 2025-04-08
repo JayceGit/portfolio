@@ -7,9 +7,24 @@
   <link rel="stylesheet" href="assets/style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
+<script>
+  const revealElements = document.querySelectorAll('.fade-in, .fade-in-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealElements.forEach(el => observer.observe(el));
+</script>
+
 <body>
   <nav class="navbar">
     <div class="nav-container">
@@ -32,23 +47,26 @@
     </div>
   </nav>
 
-  <header>
-    <div class="container">
-      <h1>Welcome to My Portfolio</h1>
-      <p>Hi, I'm JC, a BSIT student.</p>
-    </div>
-  </header>
-
-  <section id="about-me">
-    <div class="container about-me-container">
-      <img src="assets/JC_ID_PIC.jpg" alt="JC's Profile Picture" class="profile-pic"/>
-      <div class="bio">
-        <h2>About Me</h2>
-        <p>I am a passionate BSIT student who enjoys learning about software development, UI/UX design, and system architecture.</p>
-        <p>My goal is to become a full-stack developer who builds meaningful digital solutions that enhance people's lives and make technology more accessible.</p>
+  <main>
+    <header class="intro">
+      <div class="container fade-in">
+        <h1 class="animated-text">Hey, I'm <span class="highlighted">Jordan Chester</span>.</h1>
+        <p>I build things for the web and love creating beautiful, accessible digital experiences.</p>
       </div>
-    </div>
-  </section>
+    </header>
+    
+    <section id="about-me" class="fade-in-up">
+      <div class="container about-me-container">
+        <div class="profile-wrapper">
+          <img src="assets/JC_ID_PIC.jpg" alt="JC's Profile Picture" class="profile-pic-glow" />
+        </div>
+        <div class="bio">
+          <h2>About Me</h2>
+          <p>I’m a BSIT student who enjoys learning about software development, UI/UX, and system architecture.</p>
+          <p>My goal is to become a full-stack dev building meaningful solutions that improve lives and accessibility.</p>
+        </div>
+      </div>
+    </section>
 
   <section id="projects">
     <div class="container">
