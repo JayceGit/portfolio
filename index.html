@@ -7,24 +7,9 @@
   <link rel="stylesheet" href="assets/style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-
-<script>
-  const revealElements = document.querySelectorAll('.fade-in, .fade-in-up');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  revealElements.forEach(el => observer.observe(el));
-</script>
-
 <body>
   <nav class="navbar">
     <div class="nav-container">
@@ -47,28 +32,27 @@
     </div>
   </nav>
 
-  <main>
-    <header class="intro">
-      <div class="container fade-in">
-        <h1 class="animated-text">Hey, I'm <span class="highlighted">Jordan Chester</span>.</h1>
-        <p>I build things for the web and love creating beautiful, accessible digital experiences.</p>
-      </div>
-    </header>
-    
-    <section id="about-me" class="fade-in-up">
-      <div class="container about-me-container">
-        <div class="profile-wrapper">
-          <img src="assets/JC_ID_PIC.jpg" alt="JC's Profile Picture" class="profile-pic-glow" />
-        </div>
-        <div class="bio">
-          <h2>About Me</h2>
-          <p>I’m a BSIT student who enjoys learning about software development, UI/UX, and system architecture.</p>
-          <p>My goal is to become a full-stack dev building meaningful solutions that improve lives and accessibility.</p>
-        </div>
-      </div>
-    </section>
+  <header class="parallax">
+    <div class="container">
+      <h1>Welcome to My Portfolio</h1>
+      <p>Hi, I'm JC, a BSIT student.</p>
+    </div>
+  </header>
 
-  <section id="projects">
+  <section id="about-me">
+    <div class="container about-me-container fade-in">
+      <div class="profile-wrapper">
+        <img src="assets/JC_ID_PIC.jpg" alt="JC's Profile Picture" class="profile-pic"/>
+      </div>
+      <div class="bio">
+        <h2>About Me</h2>
+        <p>I am a passionate BSIT student who enjoys learning about software development, UI/UX design, and system architecture.</p>
+        <p>My goal is to become a full-stack developer who builds meaningful digital solutions that enhance people's lives and make technology more accessible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="fade-in">
     <div class="container">
       <h2>My Projects</h2>
       <div class="projects-grid">
@@ -77,27 +61,32 @@
           <p>A responsive personal website showcasing my skills, projects, and contact info.</p>
         </div>
         <div class="project">
-          <h3>To-Do List App</h3>
-          <p>A simple JavaScript-based task manager with local storage support.</p>
+          <h3>Achievely</h3>
+          <p>Achievely is a goal-tracking app that helps students set, monitor, and achieve personal and academic goals, keeping them focused and motivated.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="tech-stack">
+  <section id="tech-stack" class="fade-in">
     <div class="container">
       <h2>Tech Stack</h2>
-      <div class="tech-icons">
-        <i class="fab fa-html5 fa-3x"></i>
-        <i class="fab fa-css3-alt fa-3x"></i>
-        <i class="fab fa-js-square fa-3x"></i>
-        <i class="fab fa-react fa-3x"></i>
-        <i class="fab fa-node fa-3x"></i>
+      <p>Here are some of the tools and technologies I’ve worked with:</p>
+      <div class="tech-stack-logos">
+        <img src="assets/html.png" alt="HTML">
+        <img src="assets/css.png" alt="CSS">
+        <img src="assets/javascript.png" alt="JavaScript">
+        <img src="assets/react.png" alt="React">
+        <img src="assets/nodejs.png" alt="Node.js">
+        <img src="assets/android-studio.png" alt="Android Studio">
+        <img src="assets/powerpoint.png" alt="PowerPoint">
+        <img src="assets/word.png" alt="Word">
+        <img src="assets/excel.png" alt="Excel">
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <div class="container">
       <h2>Contact Me</h2>
       <p>Email me at: <strong>jordan.chester.garcia@gmail.com</strong></p>
@@ -110,13 +99,17 @@
     </div>
   </footer>
 
+  <button id="scrollToTopBtn" title="Back to top">↑</button>
+
   <script>
+    // Hamburger
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
     });
 
+    // Theme toggle
     const toggleSwitch = document.getElementById('theme-switch');
     toggleSwitch.addEventListener('change', () => {
       document.body.classList.toggle('dark-mode');
@@ -128,6 +121,13 @@
       document.body.classList.add('dark-mode');
       toggleSwitch.checked = true;
     }
+
+    // Scroll to top
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    window.onscroll = () => {
+      scrollToTopBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+    };
+    scrollToTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   </script>
 </body>
 </html>
