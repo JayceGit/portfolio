@@ -1,17 +1,19 @@
 :root {
-  --bg-color: #f4f4f4;
-  --text-color: #222;
-  --accent-color: #b18585;
+  --bg-color: #fdfdfd;
+  --text-color: #1c1c1c;
+  --accent-color: #0066cc;
   --card-bg: #ffffff;
-  --border-glow: #00ff00; /* Light mode green glow */
+  --header-text: #1a237e;
+  --border-glow: #00ff00;
 }
 
 body.dark-mode {
-  --bg-color: #1e1e1e;
-  --text-color: #f0f0f0;
-  --accent-color: #e6bcbc;
-  --card-bg: #2a2a2a;
-  --border-glow: #00bfff; /* Dark mode blue glow */
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --accent-color: #90caf9;
+  --card-bg: #1e1e1e;
+  --header-text: #64b5f6;
+  --border-glow: #00bfff;
 }
 
 body {
@@ -20,6 +22,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Navigation */
@@ -29,7 +32,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -55,6 +58,11 @@ body {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--accent-color);
 }
 
 .theme-toggle {
@@ -90,6 +98,12 @@ header.parallax {
   color: white;
 }
 
+header h1 {
+  font-size: 2.5rem;
+  color: var(--header-text);
+}
+
+/* Profile */
 .profile-wrapper {
   display: flex;
   justify-content: center;
@@ -123,21 +137,21 @@ header.parallax {
   padding: 1.5rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .project:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Tech stack */
+/* Tech Stack */
 .tech-stack-logos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .tech-stack-logos img {
@@ -147,7 +161,12 @@ header.parallax {
   border-radius: 8px;
   background: white;
   padding: 0.5rem;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.tech-stack-logos img:hover {
+  transform: scale(1.1);
 }
 
 /* Footer */
@@ -157,7 +176,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Fancy entrance animation */
+/* Entrance animation */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -184,7 +203,7 @@ footer {
   border-radius: 50%;
   cursor: pointer;
   display: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease;
 }
 
@@ -214,32 +233,7 @@ footer {
   }
 }
 
-/* Color palette updates */
-:root {
-  --bg-color: #fdfdfd;
-  --text-color: #1c1c1c;
-  --accent-color: #0066cc;
-  --card-bg: #ffffff;
-  --header-text: #1a237e;
-  --border-glow: #00ff00;
-}
-
-body.dark-mode {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-  --accent-color: #90caf9;
-  --card-bg: #1e1e1e;
-  --header-text: #64b5f6;
-  --border-glow: #00bfff;
-}
-
-/* Header text color in both modes */
-header h1 {
-  font-size: 2.5rem;
-  color: var(--header-text);
-}
-
-/* Tech stack logos – fixed image sizing & alignment */
+/* Additions and updates for new icons + responsiveness */
 .tech-stack-logos {
   display: flex;
   flex-wrap: wrap;
@@ -249,17 +243,59 @@ header h1 {
 }
 
 .tech-stack-logos img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
-  border-radius: 8px;
   background: white;
   padding: 0.5rem;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tech-stack-logos img:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
+/* Ensure good look on small devices */
+@media (max-width: 576px) {
+  .tech-stack-logos img {
+    width: 60px;
+    height: 60px;
+    padding: 0.4rem;
+  }
+}
+
+.tech-stack-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.tech-stack-logos img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 0.7rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.tech-stack-logos img:hover {
+  transform: scale(1.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 576px) {
+  .tech-stack-logos img {
+    width: 75px;
+    height: 75px;
+  }
+}
