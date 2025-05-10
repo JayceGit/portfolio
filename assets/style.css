@@ -299,3 +299,22 @@ footer {
     height: 75px;
   }
 }
+
+.resume-section {
+  padding-top: 2rem;
+}
+
+.year-col {
+  min-width: 100px;
+  font-size: 1rem;
+  color: var(--text-color, #333);
+}
+
+.custom-bullets {
+  padding-left: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.custom-bullets li {
+  margin-bottom: 0.6rem;
+}
