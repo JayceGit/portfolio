@@ -35,6 +35,12 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+header, section, footer, .navbar {
+  position: relative;
+  z-index: 1;
+}
+
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -111,17 +117,16 @@ header h1 {
 }
 
 .profile-pic {
-  width: 180px;
-  height: 180px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid transparent;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px var(--border-glow);
+  box-shadow: 0 0 20px 4px var(--border-glow);
+  transition: box-shadow 0.3s ease;
 }
 
 .profile-pic:hover {
-  box-shadow: 0 0 25px var(--border-glow);
+  box-shadow: 0 0 30px 6px var(--border-glow);
 }
 
 /* Projects */
@@ -152,28 +157,121 @@ header h1 {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 2rem;
+  padding: 0 1rem;
 }
 
 .tech-stack-logos img {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
-  border-radius: 8px;
-  background: white;
-  padding: 0.5rem;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 0.7rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
 .tech-stack-logos img:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Footer */
-footer {
-  background: var(--card-bg);
-  padding: 2rem;
-  font-size: 0.9rem;
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 2rem;
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .tech-stack-logos img {
+    width: 75px;
+    height: 75px;
+    padding: 0.4rem;
+  }
+}
+
+/* Resume Section */
+.resume-section {
+  padding-top: 3rem;
+}
+
+.year-col {
+  min-width: 120px;
+  text-align: right;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.custom-bullets {
+  padding-left: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-bullets li {
+  margin-bottom: 0.6rem;
+}
+
+.resume-section .row {
+  margin-bottom: 1.5rem;
+}
+
+/* Contact */
+#contact a.btn {
+  transition: transform 0.2s ease;
+}
+
+#contact a.btn:hover {
+  transform: scale(1.05);
+}
+
+.contact-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: none;
+  outline: none;
+}
+
+.contact-form button {
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--header-text);
+  color: white;
 }
 
 /* Entrance animation */
@@ -211,110 +309,100 @@ footer {
   background-color: var(--text-color);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 2rem;
-    background: var(--card-bg);
-    padding: 1rem;
-    border-radius: 10px;
+/* Blockquote style fix for dark mode */
+.blockquote-footer {
+  background-color: transparent !important;
+  color: inherit;
+}
+
+body.dark-mode .blockquote-footer {
+  background-color: transparent;
+}
+
+/* Footer dark mode */
+footer {
+  background: var(--card-bg);
+  padding: 2rem;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode footer {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(-45deg, #8ec5fc, #e0c3fc, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
   }
-
-  .nav-links.show {
-    display: flex;
+  50% {
+    background-position: 100% 50%;
   }
-
-  .hamburger {
-    display: flex;
-  }
-}
-
-/* Additions and updates for new icons + responsiveness */
-.tech-stack-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.tech-stack-logos img {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  background: white;
-  padding: 0.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tech-stack-logos img:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-/* Ensure good look on small devices */
-@media (max-width: 576px) {
-  .tech-stack-logos img {
-    width: 60px;
-    height: 60px;
-    padding: 0.4rem;
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-.tech-stack-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  padding: 0 1rem;
+.animated-bg::before,
+.animated-bg::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  animation: floatBubbles 30s linear infinite;
+  pointer-events: none;
 }
 
-.tech-stack-logos img {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
+.animated-bg::after {
+  animation-delay: 15s;
+}
+
+@keyframes floatBubbles {
+  0% {
+    transform: translateY(100%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100%) rotate(360deg);
+  }
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.ball {
+  position: fixed;
+  border-radius: 100%;
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Resume block styling (card-like layout) */
+.resume-block {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   border-radius: 12px;
-  background: #ffffff;
-  padding: 0.7rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  margin-bottom: 3rem;
 }
 
-.tech-stack-logos img:hover {
-  transform: scale(1.12);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+body.dark-mode .resume-block {
+  background-color: #1c1c1c;
 }
 
-/* Responsive for smaller screens */
-@media (max-width: 576px) {
-  .tech-stack-logos img {
-    width: 75px;
-    height: 75px;
-  }
-}
-
-.resume-section {
-  padding-top: 2rem;
-}
-
-.year-col {
-  min-width: 100px;
-  font-size: 1rem;
-  color: var(--text-color, #333);
-}
-
-.custom-bullets {
-  padding-left: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.custom-bullets li {
-  margin-bottom: 0.6rem;
-}
