@@ -7,6 +7,10 @@
   --border-glow: #00ff00;
 }
 
+html, body {
+  height: 100%;
+}
+
 body.dark-mode {
   --bg-color: #121212;
   --text-color: #e0e0e0;
@@ -25,6 +29,40 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Scroll to Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  display: none; /* Hide initially */
+  z-index: 999;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Dark Mode Scroll to Top Button */
+body.dark-mode #scrollTopBtn {
+  background-color: #f8f9fa;
+  color: #121212;
+}
+
+body.dark-mode #scrollTopBtn:hover {
+  background-color: #dddddd;
+}
+
 /* Navigation */
 .navbar {
   background: var(--card-bg);
@@ -39,7 +77,6 @@ header, section, footer, .navbar {
   position: relative;
   z-index: 1;
 }
-
 
 .nav-container {
   display: flex;
@@ -131,19 +168,22 @@ header h1 {
 
 /* Projects */
 .projects-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  margin-top: 2rem;
 }
 
 .project {
-  background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
 
 .project:hover {
   transform: scale(1.03);
@@ -288,38 +328,7 @@ header h1 {
   }
 }
 
-/* Scroll to top button */
-#scrollToTopBtn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  padding: 12px;
-  font-size: 1.2rem;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease;
-}
-
-#scrollToTopBtn:hover {
-  background-color: var(--text-color);
-}
-
-/* Blockquote style fix for dark mode */
-.blockquote-footer {
-  background-color: transparent !important;
-  color: inherit;
-}
-
-body.dark-mode .blockquote-footer {
-  background-color: transparent;
-}
-
-/* Footer dark mode */
+/* Footer */
 footer {
   background: var(--card-bg);
   padding: 2rem;
@@ -357,52 +366,21 @@ body.dark-mode footer {
   }
 }
 
-.animated-bg::before,
 .animated-bg::after {
   content: "";
   position: absolute;
   width: 200%;
   height: 200%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
-  animation: floatBubbles 30s linear infinite;
-  pointer-events: none;
-}
-
-.animated-bg::after {
-  animation-delay: 15s;
+animation: floatBubbles 30s linear infinite;
+pointer-events: none;
 }
 
 @keyframes floatBubbles {
-  0% {
-    transform: translateY(100%) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-100%) rotate(360deg);
-  }
+0% {
+transform: translateY(100%) rotate(0deg);
 }
-
-body {
-  margin: 0;
-  overflow: hidden;
+100% {
+transform: translateY(0%) rotate(360deg);
 }
-
-.ball {
-  position: fixed;
-  border-radius: 100%;
-  opacity: 0.7;
-  z-index: 0;
-  pointer-events: none;
 }
-
-/* Resume block styling (card-like layout) */
-.resume-block {
-  background-color: var(--card-bg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  border-radius: 12px;
-  margin-bottom: 3rem;
-}
-
-body.dark-mode .resume-block {
-  background-color: #1c1c1c;
-}
-

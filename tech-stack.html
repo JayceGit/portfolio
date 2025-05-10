@@ -1,18 +1,159 @@
-<!-- tech.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jordan Chester Garcia</title>
+  <title>Tech Stack - Jordan Chester Garcia</title>
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css"/>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --dark-bg: #121212;
+      --dark-surface: #1e1e1e;
+      --dark-text: #e0e0e0;
+      --dark-muted: #9e9e9e;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+    }
+    
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    
+    body.dark-mode .navbar {
+      background-color: var(--dark-surface) !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+    
+    body.dark-mode .navbar-brand {
+      color: var(--primary-color) !important;
+    }
+    
+    body.dark-mode .nav-link {
+      color: var(--dark-text) !important;
+    }
+    
+    body.dark-mode .nav-link.active {
+      color: var(--primary-color) !important;
+      font-weight: 500;
+    }
+    
+    body.dark-mode footer {
+      background-color: var(--dark-surface) !important;
+      color: var(--dark-text);
+    }
+    
+    /* Content Styles */
+    main {
+      flex: 1;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    
+    /* Tech Stack Section */
+    #tech-stack {
+      padding: 4rem 0;
+    }
+    
+    .tech-stack-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .tech-stack-logos img {
+      height: 80px;
+      width: auto;
+      transition: all 0.3s ease;
+      background-color: white;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tech-stack-logos img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    body.dark-mode .tech-stack-logos img {
+      background-color: #2a2a2a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      filter: brightness(0.9) contrast(1.1);
+    }
+    
+    body.dark-mode .tech-stack-logos img:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+    
+    /* Footer */
+    footer {
+      transition: all 0.3s ease;
+    }
+    
+    /* Floating balls (background animation) */
+    .ball {
+      position: absolute;
+      border-radius: 100%;
+      opacity: 0.7;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    /* Scroll to top button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      transition: all 0.3s ease;
+    }
+    
+    #scrollTopBtn:hover {
+      background-color: #0b5ed7;
+      transform: translateY(-3px);
+    }
+  </style>
 </head>
-<body>
 
-<div id="navbar-placeholder"></div>
+<body class="d-flex flex-column min-vh-100">
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-md sticky-top bg-light shadow-sm py-3">
   <div class="container">
     <a class="navbar-brand fw-bold text-primary" href="index.html">JC</a>
@@ -21,16 +162,15 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav align-items-center">
-        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="tech-stack.html">Tech Stack</a></li>
+        <li class="nav-item"><a class="nav-link active" href="tech-stack.html">Tech Stack</a></li>
         <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         <li class="nav-item ms-3 d-flex align-items-center">
           <div class="form-check form-switch mb-0">
             <input class="form-check-input" type="checkbox" id="theme-switch" />
-            <label class="form-check-label text-muted" for="theme-switch">
-            </label>
+            <label class="form-check-label ms-2" for="theme-switch">Dark Mode</label>
           </div>
         </li>
       </ul>
@@ -38,59 +178,100 @@
   </div>
 </nav>
 
-<section id="tech-stack" class="fade-in py-5">
-  <div class="container text-center">
-    <h2 class="mb-3">Tech Stack</h2>
-    <p>Here are some of the tools and technologies I use:</p>
-    <div class="tech-stack-logos">
-      <img src="assets/html.png" alt="HTML">
-      <img src="assets/css.png" alt="CSS">
-      <img src="assets/javascript.png" alt="JavaScript">
-      <img src="assets/react.png" alt="React">
-      <img src="assets/nodejs.png" alt="Node.js">
-      <img src="assets/android-studio.png" alt="Android Studio">
-      <img src="assets/powerpoint.png" alt="PowerPoint">
-      <img src="assets/word.png" alt="Word">
-      <img src="assets/excel.png" alt="Excel">
-      <img src="assets/aws.png" alt="AWS">
-      <img src="assets/amazonconnect.png" alt="Amazon Connect">
-      <img src="assets/avayaaura.png" alt="Avaya Aura Platform">
-      <img src="assets/ciscocomms.png" alt="Cisco Communications">
+<!-- Main Content -->
+<main class="flex-grow-1">
+  <!-- Tech Stack Section -->
+  <section id="tech-stack" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+          <h2 class="mb-4">Tech Stack</h2>
+          <p class="lead mb-5">Here are the tools and technologies I work with:</p>
+          
+          <div class="tech-stack-logos">
+            <img src="assets/html.png" alt="HTML" title="HTML">
+            <img src="assets/css.png" alt="CSS" title="CSS">
+            <img src="assets/javascript.png" alt="JavaScript" title="JavaScript">
+            <img src="assets/react.png" alt="React" title="React">
+            <img src="assets/nodejs.png" alt="Node.js" title="Node.js">
+            <img src="assets/android-studio.png" alt="Android Studio" title="Android Studio">
+            <img src="assets/powerpoint.png" alt="PowerPoint" title="Microsoft PowerPoint">
+            <img src="assets/word.png" alt="Word" title="Microsoft Word">
+            <img src="assets/excel.png" alt="Excel" title="Microsoft Excel">
+            <img src="assets/aws.png" alt="AWS" title="Amazon Web Services">
+            <img src="assets/amazonconnect.png" alt="Amazon Connect" title="Amazon Connect">
+            <img src="assets/avayaaura.png" alt="Avaya Aura Platform" title="Avaya Aura">
+            <img src="assets/ciscocomms.png" alt="Cisco Communications" title="Cisco Communications">
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<footer class="bg-light py-4 mt-5">
+<!-- Footer -->
+<footer class="bg-light py-4 mt-auto">
   <div class="container text-center">
     <p class="mb-0">&copy; 2025 JC. All rights reserved.</p>
   </div>
 </footer>
 
+<!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-  const toggleSwitch = document.getElementById('theme-switch');
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    toggleSwitch.checked = true;
-  }
-
-  toggleSwitch.addEventListener('change', () => {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  // Dark mode functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    // Theme toggle
+    const toggleSwitch = document.getElementById('theme-switch');
+    const currentTheme = localStorage.getItem('theme');
+    
+    // Apply saved theme
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      if (toggleSwitch) toggleSwitch.checked = true;
+    }
+    
+    // Theme switch event
+    if (toggleSwitch) {
+      toggleSwitch.addEventListener('change', function() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      });
+    }
+    
+    // Set active nav link
+    const currentPage = location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Scroll to top button
+    window.onscroll = function() {
+      const btn = document.getElementById("scrollTopBtn");
+      btn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+    };
   });
+  
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="js/balls-background.js"></script>
-
+<!-- Background Animation -->
 <script>
+  // Floating balls animation
   const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
   const numBalls = 50;
   const balls = [];
-
+  
   for (let i = 0; i < numBalls; i++) {
     let ball = document.createElement("div");
     ball.classList.add("ball");
@@ -98,19 +279,18 @@
     ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
     ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
     ball.style.transform = `scale(${Math.random()})`;
-    ball.style.width = `${Math.random()}em`;
+    ball.style.width = `${Math.random() * 5 + 1}em`;
     ball.style.height = ball.style.width;
-
     balls.push(ball);
     document.body.append(ball);
   }
-
+  
   balls.forEach((el, i) => {
     let to = {
       x: Math.random() * (i % 2 === 0 ? -11 : 11),
       y: Math.random() * 12
     };
-
+    
     el.animate(
       [
         { transform: "translate(0, 0)" },
