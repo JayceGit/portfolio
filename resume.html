@@ -164,6 +164,16 @@
     .custom-bullets li {
       margin-bottom: 0.5rem;
     }
+
+    /* Animation */
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 
@@ -196,7 +206,7 @@
 
 <!-- Resume Content -->
 <main class="flex-grow-1">
-  <section class="resume-section">
+  <section class="resume-section fade-in">
     <div class="container">
 
       <!-- Education Section -->

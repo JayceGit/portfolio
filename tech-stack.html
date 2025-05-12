@@ -81,37 +81,66 @@
       padding: 4rem 0;
     }
     
-    .tech-stack-logos {
+    .tech-category {
+      margin-bottom: 3rem;
+    }
+    
+    .tech-category h3 {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .tech-item {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .tech-stack-logos img {
-      height: 80px;
-      width: auto;
-      transition: all 0.3s ease;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem 1rem;
       background-color: white;
-      padding: 12px;
-      border-radius: 12px;
+      border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
     }
     
-    .tech-stack-logos img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    .tech-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
     
-    body.dark-mode .tech-stack-logos img {
-      background-color: #2a2a2a;
+    .tech-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+    
+    .tech-name {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    
+    .tech-type {
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
+    
+    /* Dark mode tech items */
+    body.dark-mode .tech-item {
+      background-color: var(--dark-surface);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      filter: brightness(0.9) contrast(1.1);
     }
     
-    body.dark-mode .tech-stack-logos img:hover {
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    body.dark-mode .tech-type {
+      color: var(--dark-muted);
     }
     
     /* Footer */
@@ -148,6 +177,16 @@
       background-color: #0b5ed7;
       transform: translateY(-3px);
     }
+
+    /* Animation */
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 
@@ -181,27 +220,117 @@
 <!-- Main Content -->
 <main class="flex-grow-1">
   <!-- Tech Stack Section -->
-  <section id="tech-stack" class="py-5">
+  <section id="tech-stack" class="py-5 fade-in">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-10 text-center">
-          <h2 class="mb-4">Tech Stack</h2>
-          <p class="lead mb-5">Here are the tools and technologies I work with:</p>
-          
-          <div class="tech-stack-logos">
-            <img src="assets/html.png" alt="HTML" title="HTML">
-            <img src="assets/css.png" alt="CSS" title="CSS">
-            <img src="assets/javascript.png" alt="JavaScript" title="JavaScript">
-            <img src="assets/react.png" alt="React" title="React">
-            <img src="assets/nodejs.png" alt="Node.js" title="Node.js">
-            <img src="assets/android-studio.png" alt="Android Studio" title="Android Studio">
-            <img src="assets/powerpoint.png" alt="PowerPoint" title="Microsoft PowerPoint">
-            <img src="assets/word.png" alt="Word" title="Microsoft Word">
-            <img src="assets/excel.png" alt="Excel" title="Microsoft Excel">
-            <img src="assets/aws.png" alt="AWS" title="Amazon Web Services">
-            <img src="assets/amazonconnect.png" alt="Amazon Connect" title="Amazon Connect">
-            <img src="assets/avayaaura.png" alt="Avaya Aura Platform" title="Avaya Aura">
-            <img src="assets/ciscocomms.png" alt="Cisco Communications" title="Cisco Communications">
+      <div class="text-center mb-5">
+        <h2>My Tech Stack</h2>
+        <p class="lead">Tools and technologies I work with</p>
+      </div>
+      
+      <!-- Programming Languages -->
+      <div class="tech-category">
+        <h3>Programming Languages</h3>
+        <div class="tech-stack-grid">
+          <div class="tech-item">
+            <img src="assets/html.png" alt="HTML" class="tech-icon">
+            <div class="tech-name">HTML</div>
+            <div class="tech-type">Markup Language</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/css.png" alt="CSS" class="tech-icon">
+            <div class="tech-name">CSS</div>
+            <div class="tech-type">Styling Language</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/javascript.png" alt="JavaScript" class="tech-icon">
+            <div class="tech-name">JavaScript</div>
+            <div class="tech-type">Programming Language</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/C.png" alt="C" class="tech-icon">
+            <div class="tech-name">C</div>
+            <div class="tech-type">Programming Language</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/SQL.png" alt="SQL" class="tech-icon">
+            <div class="tech-name">SQL</div>
+            <div class="tech-type">Database Language</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Frameworks & Libraries -->
+      <div class="tech-category">
+        <h3>Frameworks & Libraries</h3>
+        <div class="tech-stack-grid">
+          <div class="tech-item">
+            <img src="assets/react.png" alt="React" class="tech-icon">
+            <div class="tech-name">React</div>
+            <div class="tech-type">JavaScript Library</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/nodejs.png" alt="Node.js" class="tech-icon">
+            <div class="tech-name">Node.js</div>
+            <div class="tech-type">Runtime Environment</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tools & Platforms -->
+      <div class="tech-category">
+        <h3>Tools & Platforms</h3>
+        <div class="tech-stack-grid">
+          <div class="tech-item">
+            <img src="assets/android-studio.png" alt="Android Studio" class="tech-icon">
+            <div class="tech-name">Android Studio</div>
+            <div class="tech-type">Development Tool</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/netbeans.png" alt="NetBeans" class="tech-icon">
+            <div class="tech-name">NetBeans</div>
+            <div class="tech-type">IDE</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/visualsc.png" alt="Visual Studio Code" class="tech-icon">
+            <div class="tech-name">VS Code</div>
+            <div class="tech-type">Code Editor</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/oracle.png" alt="Oracle" class="tech-icon">
+            <div class="tech-name">Oracle</div>
+            <div class="tech-type">Database System</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/aws.png" alt="AWS" class="tech-icon">
+            <div class="tech-name">AWS</div>
+            <div class="tech-type">Cloud Platform</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Office & Productivity -->
+      <div class="tech-category">
+        <h3>Office & Productivity</h3>
+        <div class="tech-stack-grid">
+          <div class="tech-item">
+            <img src="assets/powerpoint.png" alt="PowerPoint" class="tech-icon">
+            <div class="tech-name">PowerPoint</div>
+            <div class="tech-type">Presentation</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/word.png" alt="Word" class="tech-icon">
+            <div class="tech-name">Word</div>
+            <div class="tech-type">Word Processor</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/excel.png" alt="Excel" class="tech-icon">
+            <div class="tech-name">Excel</div>
+            <div class="tech-type">Spreadsheet</div>
+          </div>
+          <div class="tech-item">
+            <img src="assets/publisher.png" alt="Publisher" class="tech-icon">
+            <div class="tech-name">Publisher</div>
+            <div class="tech-type">Desktop Publishing</div>
           </div>
         </div>
       </div>
@@ -263,10 +392,7 @@
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
-</script>
 
-<!-- Background Animation -->
-<script>
   // Floating balls animation
   const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
   const numBalls = 50;

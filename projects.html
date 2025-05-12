@@ -79,6 +79,15 @@
       color: var(--dark-text);
     }
     
+    body.dark-mode .project {
+      background-color: var(--dark-surface);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    body.dark-mode .project:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+    
     /* Content Styles */
     main {
       flex: 1;
@@ -116,15 +125,6 @@
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
     
-    body.dark-mode .project {
-      background-color: var(--dark-surface);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-    
-    body.dark-mode .project:hover {
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    }
-    
     /* Footer */
     footer {
       transition: all 0.3s ease;
@@ -160,6 +160,16 @@
       background-color: #0b5ed7;
       transform: translateY(-3px);
     }
+
+    /* Animation */
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 
@@ -193,7 +203,7 @@
 <!-- Main Content -->
 <main class="flex-grow-1">
   <!-- Projects Section -->
-  <section id="projects" class="py-5">
+  <section id="projects" class="py-5 fade-in">
     <div class="container">
       <div class="text-center mb-5">
         <h2>My Projects</h2>
@@ -213,7 +223,7 @@
 
         <div class="project">
           <h3>Winterfell Coffeeshop</h3>
-          <p>A fan-made shopping app where you can buy handcrafted coffee, pastries, and hearty meals inspired by Winterfell. Medieval charm meets modern convenience—bringing the North’s flavors to your cart.</p>
+          <p>A fan-made shopping app where you can buy handcrafted coffee, pastries, and hearty meals inspired by Winterfell. Medieval charm meets modern convenience—bringing the North's flavors to your cart.</p>
         </div>
 
         <div class="project">
