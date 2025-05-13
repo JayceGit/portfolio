@@ -28,6 +28,7 @@
       padding: 0;
       transition: all 0.3s ease;
       overflow-x: hidden;
+      text-align: center;
     }
     
     /* Floating balls */
@@ -101,15 +102,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 4rem 2rem;
+      padding: 2rem 1rem;
       position: relative;
     }
     
     .welcome-box {
       background-color: rgba(255, 255, 255, 0.85);
-      padding: 3rem;
+      padding: 2rem;
       border-radius: 16px;
+      width: 100%;
       max-width: 800px;
       margin: 0 auto;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -117,7 +118,7 @@
     }
     
     .welcome-text {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
       color: var(--primary-color);
@@ -125,11 +126,12 @@
     
     .content-card {
       background-color: white;
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       transition: all 0.3s ease;
+      text-align: left;
     }
     
     .content-card:hover {
@@ -142,7 +144,7 @@
       transition: all 0.3s ease;
       position: relative;
       z-index: 1;
-      padding: 2rem 0;
+      padding: 1.5rem 0;
     }
     
     /* Scroll to top button */
@@ -175,6 +177,64 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 90vh;
+        padding: 1rem;
+      }
+      
+      .welcome-box {
+        padding: 1.5rem;
+      }
+      
+      .welcome-text {
+        font-size: 1.75rem;
+      }
+      
+      .content-card {
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
+      
+      .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.75rem;
+      }
+      
+      .btn-outline-primary {
+        margin-left: 0 !important;
+      }
+      
+      .navbar-collapse {
+        padding-top: 1rem;
+      }
+      
+      .nav-item {
+        padding: 0.5rem 0;
+      }
+      
+      .form-switch {
+        justify-content: center;
+        padding-left: 2.5em;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .welcome-text {
+        font-size: 1.5rem;
+      }
+      
+      .content-card p {
+        font-size: 0.95rem;
+      }
+      
+      .welcome-box {
+        padding: 1.25rem;
+      }
+    }
   </style>
 </head>
 
@@ -194,7 +254,7 @@
         <li class="nav-item"><a class="nav-link" href="tech-stack.html">Tech Stack</a></li>
         <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item ms-3 d-flex align-items-center">
+        <li class="nav-item ms-md-3 d-flex align-items-center">
           <div class="form-check form-switch mb-0">
             <input class="form-check-input" type="checkbox" id="theme-switch" />
             <label class="form-check-label ms-2" for="theme-switch">Dark Mode</label>
@@ -213,20 +273,22 @@
       <div class="welcome-box fade-in">
         <h1 class="welcome-text">Welcome to My Portfolio</h1>
         <div class="content-card">
-          <p class="lead">
+          <p class="lead mb-0">
             Hey there! You've just stepped into my digital workspace — a mix of creativity, code, and a bit of chaos. 
             Take a look around, get to know my work, and let's make something awesome together.
           </p>
         </div>
         <div class="content-card mt-4">
-          <p>
+          <p class="mb-0">
             I'm Jordan Chester Garcia, a passionate developer dedicated to creating meaningful digital experiences. 
             This portfolio showcases my journey, projects, and skills in the world of technology.
           </p>
         </div>
-        <div class="content-card mt-4">
-          <a href="about.html" class="btn btn-primary btn-lg px-4 me-2">Get to Know Me</a>
-          <a href="projects.html" class="btn btn-outline-primary btn-lg px-4">View My Work</a>
+        <div class="content-card mt-4 p-3">
+          <div class="d-grid gap-2 d-md-block">
+            <a href="about.html" class="btn btn-primary btn-lg px-4 me-md-2 mb-2">Get to Know Me</a>
+            <a href="projects.html" class="btn btn-outline-primary btn-lg px-4 mb-2">View My Work</a>
+          </div>
         </div>
       </div>
     </div>

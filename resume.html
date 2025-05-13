@@ -28,6 +28,7 @@
       padding: 0;
       transition: all 0.3s ease;
       overflow-x: hidden;
+      text-align: center;
     }
     
     /* Floating balls */
@@ -122,6 +123,9 @@
       transition: all 0.3s ease;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: left;
     }
     
     .year-col {
@@ -133,6 +137,7 @@
       transition: all 0.3s ease;
       position: relative;
       z-index: 1;
+      padding: 1.5rem 0;
     }
     
     /* Scroll to top button */
@@ -174,6 +179,64 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .resume-block {
+        padding: 1.5rem;
+      }
+      
+      .year-col {
+        text-align: left !important;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      
+      .resume-block .row {
+        margin-bottom: 1.5rem !important;
+      }
+      
+      .resume-block h2 {
+        font-size: 1.5rem;
+      }
+      
+      .resume-block h5 {
+        font-size: 1.1rem;
+      }
+      
+      .navbar-collapse {
+        padding-top: 1rem;
+      }
+      
+      .nav-item {
+        padding: 0.5rem 0;
+      }
+      
+      .form-switch {
+        justify-content: center;
+        padding-left: 2.5em;
+      }
+      
+      .custom-bullets {
+        padding-left: 1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .resume-block {
+        padding: 1.25rem;
+      }
+      
+      .resume-block p,
+      .resume-block li {
+        font-size: 0.95rem;
+      }
+      
+      main {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+    }
   </style>
 </head>
 
@@ -193,7 +256,7 @@
         <li class="nav-item"><a class="nav-link" href="tech-stack.html">Tech Stack</a></li>
         <li class="nav-item"><a class="nav-link active" href="resume.html">Resume</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item ms-3 d-flex align-items-center">
+        <li class="nav-item ms-md-3 d-flex align-items-center">
           <div class="form-check form-switch mb-0">
             <input class="form-check-input" type="checkbox" id="theme-switch" />
             <label class="form-check-label ms-2" for="theme-switch">Dark Mode</label>
@@ -210,51 +273,51 @@
     <div class="container">
 
       <!-- Education Section -->
-      <div class="resume-block rounded shadow-sm p-4 mb-5">
+      <div class="resume-block">
         <div class="row mb-4 align-items-start">
-          <div class="col-md-2 text-md-end text-center fw-bold year-col">Education</div>
+          <div class="col-md-2 text-md-end text-start fw-bold year-col">Education</div>
           <div class="col-md-10">
             <h2 class="mb-3">Educational Attainment</h2>
           </div>
         </div>
 
         <div class="row mb-3">
-          <div class="col-md-2 text-md-end text-center fw-bold year-col">Grade School:</div>
-          <div class="col-md-10"><p>Maranatha Christian Academy, Sampaloc, Manila</p></div>
+          <div class="col-md-2 text-md-end text-start fw-bold year-col">Grade School:</div>
+          <div class="col-md-10"><p class="mb-0">Maranatha Christian Academy, Sampaloc, Manila</p></div>
         </div>
 
         <div class="row mb-3">
-          <div class="col-md-2 text-md-end text-center fw-bold year-col">Junior High School:</div>
-          <div class="col-md-10"><p>Pasay City Academy</p></div>
+          <div class="col-md-2 text-md-end text-start fw-bold year-col">Junior High School:</div>
+          <div class="col-md-10"><p class="mb-0">Pasay City Academy</p></div>
         </div>
 
         <div class="row mb-3">
-          <div class="col-md-2 text-md-end text-center fw-bold year-col">Senior High School:</div>
-          <div class="col-md-10"><p>Olivarez College</p></div>
+          <div class="col-md-2 text-md-end text-start fw-bold year-col">Senior High School:</div>
+          <div class="col-md-10"><p class="mb-0">Olivarez College</p></div>
         </div>
 
         <div class="row mb-3">
-          <div class="col-md-2 text-md-end text-center fw-bold year-col">College:</div>
-          <div class="col-md-10"><p>Completed two years of Bachelor of Science in Accountancy at the University of the East (UE)</p></div>
+          <div class="col-md-2 text-md-end text-start fw-bold year-col">College:</div>
+          <div class="col-md-10"><p class="mb-0">Completed two years of Bachelor of Science in Accountancy at the University of the East (UE)</p></div>
         </div>
 
         <div class="row">
-          <div class="col-md-2 text-md-end text-center fw-bold year-col">Current:</div>
-          <div class="col-md-10"><p>Pursuing a Bachelor of Science in Information Technology at Saint Dominic College of Asia (SDCA)</p></div>
+          <div class="col-md-2 text-md-end text-start fw-bold year-col">Current:</div>
+          <div class="col-md-10"><p class="mb-0">Pursuing a Bachelor of Science in Information Technology at Saint Dominic College of Asia (SDCA)</p></div>
         </div>
       </div>
 
       <!-- Work Experience Section -->
-      <div class="resume-block rounded shadow-sm p-4">
+      <div class="resume-block">
         <div class="row mb-4">
-          <div class="col-md-2 text-md-end text-center fw-bold year-col">Experience</div>
+          <div class="col-md-2 text-md-end text-start fw-bold year-col">Experience</div>
           <div class="col-md-10">
             <h2 class="mb-3">Work Experience</h2>
           </div>
         </div>
 
         <div class="row mb-4">
-          <div class="col-md-2 text-md-end text-center fw-bold year-col">2022</div>
+          <div class="col-md-2 text-md-end text-start fw-bold year-col">2022</div>
           <div class="col-md-10">
             <h5 class="mb-1">Customer Service Representative</h5>
             <p class="text-muted mb-2">Alorica</p>
@@ -267,7 +330,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-2 text-md-end text-center fw-bold year-col">2022–2023</div>
+          <div class="col-md-2 text-md-end text-start fw-bold year-col">2022–2023</div>
           <div class="col-md-10">
             <h5 class="mb-1">Customer Service Representative</h5>
             <p class="text-muted mb-2">Teleperformance</p>
@@ -284,9 +347,9 @@
   </section>
 </main>
 
-<footer class="bg-light py-4 mt-auto">
+<footer class="py-4 mt-auto">
   <div class="container text-center">
-    <p class="mb-0">&copy; 2025 JC. All rights reserved.</p>
+    <p class="mb-0">&copy; 2025 Jordan Chester Garcia. All rights reserved.</p>
   </div>
 </footer>
 
