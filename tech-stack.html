@@ -23,9 +23,11 @@
     
     body {
       font-family: 'Roboto', sans-serif;
-      height: 100%;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       transition: all 0.3s ease;
     }
     
@@ -72,17 +74,19 @@
     /* Content Styles */
     main {
       flex: 1;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding: 2rem 0;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
     /* Tech Stack Section */
     #tech-stack {
-      padding: 4rem 0;
+      padding: 2rem 1rem;
     }
     
     .tech-category {
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
     
     .tech-category h3 {
@@ -94,9 +98,9 @@
     
     .tech-stack-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
     
     .tech-item {
@@ -104,7 +108,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1rem;
       background-color: white;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -117,19 +121,20 @@
     }
     
     .tech-icon {
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
       object-fit: contain;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     
     .tech-name {
       font-weight: 500;
       margin-bottom: 0.25rem;
+      font-size: 0.95rem;
     }
     
     .tech-type {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: #6c757d;
     }
     
@@ -146,6 +151,7 @@
     /* Footer */
     footer {
       transition: all 0.3s ease;
+      width: 100%;
     }
     
     /* Floating balls (background animation) */
@@ -187,10 +193,55 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .tech-stack-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+      
+      .tech-icon {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .tech-name {
+        font-size: 0.85rem;
+      }
+      
+      .tech-type {
+        font-size: 0.7rem;
+      }
+      
+      #tech-stack {
+        padding: 1.5rem 0.5rem;
+      }
+      
+      .tech-category {
+        margin-bottom: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .tech-stack-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 0.75rem;
+      }
+      
+      .tech-item {
+        padding: 0.75rem 0.5rem;
+      }
+      
+      .tech-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.5rem;
+      }
+    }
   </style>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column">
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md sticky-top bg-light shadow-sm py-3">
@@ -220,9 +271,9 @@
 <!-- Main Content -->
 <main class="flex-grow-1">
   <!-- Tech Stack Section -->
-  <section id="tech-stack" class="py-5 fade-in">
-    <div class="container">
-      <div class="text-center mb-5">
+  <section id="tech-stack" class="fade-in">
+    <div class="container px-3">
+      <div class="text-center mb-4">
         <h2>My Tech Stack</h2>
         <p class="lead">Tools and technologies I work with</p>
       </div>
@@ -339,7 +390,7 @@
 </main>
 
 <!-- Footer -->
-<footer class="bg-light py-4 mt-auto">
+<footer class="bg-light py-3 mt-auto">
   <div class="container text-center">
     <p class="mb-0">&copy; 2025 JC. All rights reserved.</p>
   </div>

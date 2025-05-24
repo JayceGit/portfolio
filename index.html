@@ -23,12 +23,13 @@
     
     body {
       font-family: 'Roboto', sans-serif;
-      height: 100%;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       transition: all 0.3s ease;
       overflow-x: hidden;
-      text-align: center;
     }
     
     /* Floating balls */
@@ -83,45 +84,66 @@
     body.dark-mode .content-card {
       background-color: var(--dark-surface);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      color: var(--dark-text);
     }
     
-    body.dark-mode .welcome-box {
-      background-color: rgba(30, 30, 30, 0.85);
+    body.dark-mode .profile-pic {
+      border-color: var(--primary-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    
+    body.dark-mode .text-muted {
+      color: var(--dark-muted) !important;
+    }
+    
+    body.dark-mode .form-check-label {
+      color: var(--dark-text);
+    }
+    
+    body.dark-mode .form-switch .form-check-input {
+      background-color: #333;
+      border-color: #555;
+    }
+    
+    body.dark-mode .form-switch .form-check-input:checked {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
     }
     
     /* Content Styles */
     main {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
       position: relative;
       z-index: 1;
     }
     
     /* Hero Section */
     .hero-section {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1rem;
-      position: relative;
-    }
-    
-    .welcome-box {
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 2rem;
-      border-radius: 16px;
       width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
     }
     
-    .welcome-text {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--primary-color);
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid var(--primary-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+    
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
     
     .content-card {
@@ -131,12 +153,34 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       margin-bottom: 1.5rem;
       transition: all 0.3s ease;
-      text-align: left;
+      text-align: center;
     }
     
     .content-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--primary-color);
+      margin: 1rem auto 0;
+      border-radius: 2px;
     }
     
     /* Footer */
@@ -180,22 +224,17 @@
     
     /* Mobile-specific styles */
     @media (max-width: 768px) {
-      .hero-section {
-        min-height: 90vh;
-        padding: 1rem;
-      }
-      
-      .welcome-box {
+      main {
         padding: 1.5rem;
       }
       
-      .welcome-text {
-        font-size: 1.75rem;
+      .profile-pic {
+        width: 160px;
+        height: 160px;
       }
       
       .content-card {
         padding: 1.25rem;
-        margin-bottom: 1.25rem;
       }
       
       .btn {
@@ -207,32 +246,20 @@
       .btn-outline-primary {
         margin-left: 0 !important;
       }
-      
-      .navbar-collapse {
-        padding-top: 1rem;
-      }
-      
-      .nav-item {
-        padding: 0.5rem 0;
-      }
-      
-      .form-switch {
-        justify-content: center;
-        padding-left: 2.5em;
-      }
     }
     
     @media (max-width: 576px) {
-      .welcome-text {
-        font-size: 1.5rem;
+      .profile-pic {
+        width: 140px;
+        height: 140px;
       }
       
-      .content-card p {
-        font-size: 0.95rem;
+      .content-card {
+        padding: 1rem;
       }
       
-      .welcome-box {
-        padding: 1.25rem;
+      .section-title h2 {
+        font-size: 1.75rem;
       }
     }
   </style>
@@ -268,35 +295,34 @@
 <!-- Main Content -->
 <main class="flex-grow-1">
   <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="welcome-box fade-in">
-        <h1 class="welcome-text">Welcome to My Portfolio</h1>
-        <div class="content-card">
-          <p class="lead mb-0">
-            Hey there! You've just stepped into my digital workspace — a mix of creativity, code, and a bit of chaos. 
-            Take a look around, get to know my work, and let's make something awesome together.
-          </p>
-        </div>
-        <div class="content-card mt-4">
-          <p class="mb-0">
-            I'm Jordan Chester Garcia, a passionate developer dedicated to creating meaningful digital experiences. 
-            This portfolio showcases my journey, projects, and skills in the world of technology.
-          </p>
-        </div>
-        <div class="content-card mt-4 p-3">
-          <div class="d-grid gap-2 d-md-block">
-            <a href="about.html" class="btn btn-primary btn-lg px-4 me-md-2 mb-2">Get to Know Me</a>
-            <a href="projects.html" class="btn btn-outline-primary btn-lg px-4 mb-2">View My Work</a>
-          </div>
-        </div>
+  <section class="hero-section fade-in">
+    <div class="section-title">
+      <img src="assets/JC_ID_PIC.jpg" alt="Portrait of Jordan Chester Garcia" class="profile-pic fade-in">
+      <h2>Welcome to My Portfolio</h2>
+      <p class="lead">Jordan Chester Garcia</p>
+    </div>
+    
+    <div class="content-card">
+      <p class="mb-4">
+        Hey there! I'm Jordan Chester Garcia, a BSIT student passionate about technology.
+        Take a look around, get to know my work, and let's make something awesome together.
+      </p>
+      
+      <p class="mb-4">
+        This portfolio showcases my journey, projects, and skills in the world of technology.
+        I believe in continuous learning and pushing boundaries to create meaningful digital experiences.
+      </p>
+      
+      <div class="d-grid gap-2 d-md-block mt-4">
+        <a href="about.html" class="btn btn-primary btn-lg px-4 me-md-2 mb-2">Get to Know Me</a>
+        <a href="projects.html" class="btn btn-outline-primary btn-lg px-4 mb-2">View My Work</a>
       </div>
     </div>
   </section>
 </main>
 
 <!-- Footer -->
-<footer class="py-4 mt-auto">
+<footer class="mt-auto">
   <div class="container text-center">
     <p class="mb-0">&copy; 2025 Jordan Chester Garcia. All rights reserved.</p>
   </div>
